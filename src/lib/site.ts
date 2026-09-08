@@ -32,43 +32,33 @@ export const serviceGroups = [
 
 export const homeServices = [
   {
-    id: "process",
-    title: "Business process analysis",
-    href: "/services/business-process-audit",
-  },
-  {
     id: "implementation",
     title: "Odoo Implementation",
     href: "/services/erp-implementation",
   },
   {
-    id: "development",
-    title: "Custom Odoo Development",
-    href: "/services",
+    id: "process",
+    title: "Business Process Analysis",
+    href: "/services/business-process-audit",
   },
   {
     id: "migration",
-    title: "Data migration",
+    title: "Data Migration",
     href: "/services",
   },
   {
-    id: "support",
-    title: "Support & User Adoption",
+    id: "development",
+    title: "Custom Development",
     href: "/services",
   },
   {
     id: "api",
-    title: "API development",
-    href: "/services",
-  },
-  {
-    id: "dashboard",
-    title: "Custom Dashboarding",
+    title: "API Connections",
     href: "/services",
   },
   {
     id: "accounting",
-    title: "Accounting Optimization and migration",
+    title: "Accounting setup & migration",
     href: "/services/accounting-finance-reporting",
   },
 ] as const;
