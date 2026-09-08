@@ -1,15 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import { ServiceIcon } from "@/components/ServiceIcons";
+import { useT } from "@/components/LanguageProvider";
 import { homeServices } from "@/lib/site";
 
 export function ServicesShowcase() {
+  const t = useT();
+
   return (
     <section className="services-showcase">
       <div className="services-showcase-inner">
         <h2 className="section-heading">
-          Your One Stop Shop
+          {t.showcase.heading}
           <br />
-          For All Your Needs
+          {t.showcase.headingLine2}
         </h2>
         <div className="services-grid">
           {homeServices.map((service) => (
@@ -21,7 +26,7 @@ export function ServicesShowcase() {
               <div className="service-card-visual">
                 <ServiceIcon id={service.id} />
               </div>
-              <p className="service-card-title">{service.title}</p>
+              <p className="service-card-title">{t.showcase[service.id]}</p>
             </Link>
           ))}
         </div>

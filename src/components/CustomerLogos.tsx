@@ -1,4 +1,5 @@
 import { ClientsMarquee } from "@/components/ClientsMarquee";
+import { ClientsTitle } from "@/components/ClientsTitle";
 import { getCustomerLogos } from "@/lib/customers";
 
 export function CustomerLogos() {
@@ -13,9 +14,7 @@ export function CustomerLogos() {
 
   return (
     <section className="customers">
-      <p className="customers-title">
-        Join our clients running on real efficiency
-      </p>
+      <ClientsTitle />
       <ClientsMarquee logos={track} />
     </section>
   );

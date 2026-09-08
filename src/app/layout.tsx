@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { Inter } from "next/font/google";
 import { Header } from "@/components/Header";
-import { LanguageProvider } from "@/components/LanguageProvider";
+import { LanguageProvider, type Locale } from "@/components/LanguageProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -19,15 +20,18 @@ export const metadata: Metadata = {
     "Odoo implementation, customization, and ERP consulting for businesses in Belgium and Luxembourg.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const raw = (await cookies()).get("ots-locale")?.value;
+  const initialLocale: Locale = raw === "nl" || raw === "en" ? raw : "en";
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={initialLocale} suppressHydrationWarning>
       <body className={`${inter.variable} ${inter.className}`}>
-        <LanguageProvider>
+        <LanguageProvider initialLocale={initialLocale}>
           <div className="page">
             <Header />
             {children}

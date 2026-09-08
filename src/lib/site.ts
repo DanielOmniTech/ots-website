@@ -1,5 +1,6 @@
 export const serviceGroups = [
   {
+    id: "odoo" as const,
     title: "Odoo Services",
     items: [
       {
@@ -17,6 +18,7 @@ export const serviceGroups = [
     ],
   },
   {
+    id: "industry" as const,
     title: "Industry Verticals",
     items: [
       {
@@ -73,11 +75,13 @@ export const homeServices = [
 
 export const jobs = [
   {
+    id: "developer" as const,
     title: "Odoo Developer",
     location: "Belgium / Luxembourg · Hybrid",
     type: "Full-time",
   },
   {
+    id: "consultant" as const,
     title: "ERP Consultant",
     location: "Belgium / Luxembourg · Hybrid",
     type: "Full-time",

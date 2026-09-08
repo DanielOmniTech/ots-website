@@ -1,12 +1,13 @@
 "use client";
 
-import { useLanguage } from "@/components/LanguageProvider";
+import { useLanguage, useT } from "@/components/LanguageProvider";
 
 export function ProductShowcase() {
   const { locale } = useLanguage();
+  const t = useT();
 
   return (
-    <section className="product-showcase" aria-label="Odoo workspace">
+    <section className="product-showcase" aria-label={t.product.aria}>
       <div className="macbook">
         <div className="macbook-lid">
           <div className="macbook-bezel">

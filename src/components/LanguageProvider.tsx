@@ -8,7 +8,17 @@ import {
   type ReactNode,
 } from "react";
 
+import { messages, type Messages } from "@/lib/i18n";
+
 export type Locale = "en" | "nl";
+
+const STORAGE_KEY = "ots-locale";
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+
+function writeLocale(next: Locale) {
+  window.localStorage.setItem(STORAGE_KEY, next);
+  document.cookie = `${STORAGE_KEY}=${next}; path=/; max-age=${COOKIE_MAX_AGE}; samesite=lax`;
+}
 
 type LanguageContextValue = {
   locale: Locale;
@@ -17,28 +27,33 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem("ots-locale");
-    if (stored === "en" || stored === "nl") {
-      setLocaleState(stored);
-      return;
-    }
-
-    if (navigator.language.toLowerCase().startsWith("nl")) {
-      setLocaleState("nl");
-    }
-  }, []);
+export function LanguageProvider({
+  children,
+  initialLocale,
+}: {
+  children: ReactNode;
+  initialLocale: Locale;
+}) {
+  const [locale, setLocaleState] = useState<Locale>(initialLocale);
 
   useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
 
+  useEffect(() => {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if ((stored === "en" || stored === "nl") && stored !== initialLocale) {
+      setLocaleState(stored);
+      writeLocale(stored);
+      return;
+    }
+
+    writeLocale(initialLocale);
+  }, [initialLocale]);
+
   const setLocale = (next: Locale) => {
     setLocaleState(next);
-    window.localStorage.setItem("ots-locale", next);
+    writeLocale(next);
   };
 
   return (
@@ -54,4 +69,9 @@ export function useLanguage() {
     throw new Error("useLanguage must be used within LanguageProvider");
   }
   return context;
+}
+
+export function useT(): Messages {
+  const { locale } = useLanguage();
+  return messages[locale];
 }
