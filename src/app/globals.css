@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-figtree);
+  --color-page: #ececec;
+  --color-ink: #111111;
+  --color-muted: #5a5a5a;
+  --color-night: #05070d;
+  --color-night-2: #0b1020;
+  --color-accent: #5b7cff;
+  --color-accent-2: #7a6bff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-figtree), var(--font-manrope), system-ui, sans-serif;
+}
+
+.hero-glow {
+  background:
+    radial-gradient(80% 70% at 18% 20%, rgba(70, 90, 255, 0.38), transparent 58%),
+    radial-gradient(70% 80% at 85% 10%, rgba(90, 40, 180, 0.28), transparent 55%),
+    radial-gradient(90% 90% at 70% 90%, rgba(30, 80, 255, 0.22), transparent 50%),
+    linear-gradient(180deg, #04060c 0%, #07122a 55%, #05070d 100%);
+}
+
+.highlight-brace {
+  color: #6d8cff;
+  text-shadow: 0 0 18px rgba(109, 140, 255, 0.55);
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track-slow {
+  animation: marquee 42s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.grid-frame {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 4.2rem;
+  line-height: 0.8;
+  padding-right: 0.12em;
+  padding-top: 0.08em;
+  font-weight: 700;
+}
