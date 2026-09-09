@@ -14,8 +14,8 @@ export default function HomePage() {
         <HeroBackground />
         <HomeHero />
         <ProductShowcase />
-        <CustomerLogos />
       </div>
+      <CustomerLogos />
       <ReasonsShowcase />
       <ServicesShowcase />
     </>

@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 
 const desktopColors: [string, string, string, string] = [
   "#fbfaf9",
-  "#d8d4ff",
-  "#8a7eff",
-  "#2f00ff",
+  "#ddd9ff",
+  "#a39cff",
+  "#6a58ef",
 ];
 const phoneColors: [string, string, string, string] = [
   "#fbfaf9",

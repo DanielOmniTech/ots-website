@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useLayoutEffect, useRef } from "react";
 import { useT } from "@/components/LanguageProvider";
 import type { Messages } from "@/lib/i18n";
 
@@ -80,7 +81,7 @@ function UserIcon() {
 
 function SkillsVisual({ t }: { t: Messages }) {
   return (
-    <div className="reason-mini-card">
+    <div className="reason-mini-card" data-reveal>
       <p className="reason-mini-caption">{t.reasons.skillsCaption}</p>
       <span className="reason-pill reason-pill-accent">{t.reasons.skillsTagTech}</span>
       <span className="reason-pill">{t.reasons.skillsTagBiz}</span>
@@ -90,7 +91,7 @@ function SkillsVisual({ t }: { t: Messages }) {
 
 function PlanVisual({ t }: { t: Messages }) {
   return (
-    <div className="reason-mini-card reason-plan">
+    <div className="reason-mini-card reason-plan" data-reveal>
       <p className="reason-plan-title">{t.reasons.planTitle}</p>
       <ul className="reason-plan-list">
         <li>{t.reasons.planPrice}</li>
@@ -103,7 +104,7 @@ function PlanVisual({ t }: { t: Messages }) {
 
 function SpocVisual({ t }: { t: Messages }) {
   return (
-    <div className="reason-spoc">
+    <div className="reason-spoc" data-reveal>
       <div className="reason-spoc-crowd" aria-hidden="true">
         <span />
         <span />
@@ -120,9 +121,56 @@ function SpocVisual({ t }: { t: Messages }) {
 
 export function ReasonsShowcase() {
   const t = useT();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    const root = sectionRef.current;
+    if (!root) return;
+
+    const items = [...root.querySelectorAll<HTMLElement>("[data-reveal]")];
+
+    const showAll = () => {
+      items.forEach((el) => el.classList.add("is-revealed"));
+    };
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      showAll();
+      return;
+    }
+
+    const update = () => {
+      const vh = window.innerHeight;
+      const start = vh * 0.88;
+      const end = vh * 0.42;
+
+      items.forEach((el) => {
+        const top = el.getBoundingClientRect().top;
+        const progress = Math.min(1, Math.max(0, (start - top) / (start - end)));
+        if (progress > 0.2) el.classList.add("is-revealed");
+      });
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        update();
+        ticking = false;
+      });
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
 
   return (
-    <section className="reasons">
+    <section className="reasons" ref={sectionRef}>
       <div className="reasons-inner">
         <div className="reasons-intro">
           <div className="reasons-badge">
