@@ -44,6 +44,7 @@ export function Footer() {
           <Link href="/services">{t.nav.services}</Link>
           <Link href="/about">{t.nav.about}</Link>
           <Link href="/career">{t.nav.career}</Link>
+          <Link href="/contact">{t.nav.contact}</Link>
         </nav>
       </div>
       <p className="footer-copy">{t.footer.copyright}</p>

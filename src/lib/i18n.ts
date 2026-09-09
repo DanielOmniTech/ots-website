@@ -7,6 +7,7 @@ export const messages = {
       services: "Services",
       about: "About",
       career: "Career",
+      contact: "Contact",
       openMenu: "Open menu",
       language: "Language",
       primary: "Primary",
@@ -117,6 +118,23 @@ export const messages = {
       maps: "Open in Maps",
       copyright: "© 2026 Omni Tech Solutions",
     },
+    contact: {
+      eyebrow: "Contact",
+      title: "Book a call",
+      description:
+        "Leave your details. We'll come back with a time for a free 30-minute intro.",
+      name: "Name",
+      email: "Email",
+      phone: "Phone",
+      company: "Company",
+      website: "Website",
+      submit: "Send",
+      sending: "Sending…",
+      success: "Thanks. We'll get back to you shortly.",
+      invalid: "Please enter a valid name and email.",
+      error:
+        "Something went wrong. Try again or email info@omnitechsolutions.eu.",
+    },
   },
   nl: {
     nav: {
@@ -124,6 +142,7 @@ export const messages = {
       services: "Diensten",
       about: "Over ons",
       career: "Carrière",
+      contact: "Contact",
       openMenu: "Menu openen",
       language: "Taal",
       primary: "Hoofdnavigatie",
@@ -233,6 +252,23 @@ export const messages = {
     footer: {
       maps: "Bekijk op de kaart",
       copyright: "© 2026 Omni Tech Solutions",
+    },
+    contact: {
+      eyebrow: "Contact",
+      title: "Plan een gesprek",
+      description:
+        "Laat je gegevens achter. We komen terug met een moment voor een gratis kennismaking van 30 minuten.",
+      name: "Naam",
+      email: "E-mail",
+      phone: "Telefoon",
+      company: "Bedrijf",
+      website: "Website",
+      submit: "Versturen",
+      sending: "Versturen…",
+      success: "Bedankt. We nemen snel contact op.",
+      invalid: "Vul een geldige naam en e-mail in.",
+      error:
+        "Er ging iets mis. Probeer opnieuw of mail info@omnitechsolutions.eu.",
     },
   },
 } as const;

@@ -27,7 +27,7 @@ export function HomeHero() {
             <p className="hero-description">{t.hero.description}</p>
             <div className="hero-cta">
               <Link
-                href="mailto:info@omnitechsolutions.eu"
+                href="/contact"
                 className="hero-button"
               >
                 <div className="hero-button-inner">

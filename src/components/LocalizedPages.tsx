@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ContactForm } from "@/components/ContactForm";
 import { useT } from "@/components/LanguageProvider";
 import { PageHero } from "@/components/PageHero";
 import {
@@ -43,6 +44,21 @@ export function CareerContent() {
           </li>
         ))}
       </ul>
+    </main>
+  );
+}
+
+export function ContactContent() {
+  const t = useT();
+
+  return (
+    <main className="inner-page">
+      <PageHero
+        eyebrow={t.contact.eyebrow}
+        title={t.contact.title}
+        description={t.contact.description}
+      />
+      <ContactForm />
     </main>
   );
 }

@@ -14,7 +14,7 @@ import { serviceGroups } from "@/lib/site";
 
 function BookCallButton({ label }: { label: string }) {
   return (
-    <Link href="mailto:info@omnitechsolutions.eu" className="hero-button header-button">
+    <Link href="/contact" className="hero-button header-button">
       <div className="hero-button-inner">
         <div className="hero-button-track">
           <p className="hero-button-text">{label}</p>
@@ -104,6 +104,12 @@ export function Header() {
               className={`nav-pill${pathname === "/career" ? " is-active" : ""}`}
             >
               {t.nav.career}
+            </Link>
+            <Link
+              href="/contact"
+              className={`nav-pill${pathname === "/contact" ? " is-active" : ""}`}
+            >
+              {t.nav.contact}
             </Link>
           </nav>
         </div>

@@ -1868,3 +1868,78 @@ img {
     gap: 28px;
   }
 }
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+  max-width: 480px;
+  padding: 28px 24px;
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: 20px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.contact-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--color-ink);
+  font: inherit;
+  font-size: 15px;
+}
+
+.contact-form input:focus {
+  outline: 2px solid #2f00ff33;
+  border-color: var(--color-accent);
+}
+
+.contact-hp {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  overflow: hidden;
+}
+
+.contact-submit {
+  justify-self: start;
+  margin-top: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.contact-submit:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.contact-error,
+.contact-success {
+  margin: 0;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.contact-error {
+  color: #b42318;
+}
+
+.contact-success {
+  max-width: 480px;
+  padding: 22px 24px;
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: 20px;
+  color: var(--color-ink);
+}
