@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 const WEBHOOK_URL =
   process.env.ODOO_LEAD_WEBHOOK_URL ??
-  "https://portal.omnitechsolutions.eu/web/hook/b9516af8-5f2b-4904-a8f3-cbfff5ce1554";
+  "https://portal.omnitechsolutions.eu/web/hook/bdfae2da-e0b1-4f0b-9968-56ac4732067c";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
