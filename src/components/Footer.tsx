@@ -25,6 +25,9 @@ export function Footer() {
           <address className="footer-address">
             <span>Frankrijklei 5</span>
             <span>2000 Antwerpen</span>
+            <a href="mailto:info@omnitechsolutions.eu">
+              info@omnitechsolutions.eu
+            </a>
           </address>
           <a
             className="footer-maps"
@@ -36,19 +39,12 @@ export function Footer() {
           </a>
         </div>
 
-        <div className="footer-cols">
-          <nav className="footer-nav" aria-label={t.nav.primary}>
-            <Link href="/">{t.nav.home}</Link>
-            <Link href="/services">{t.nav.services}</Link>
-            <Link href="/about">{t.nav.about}</Link>
-            <Link href="/career">{t.nav.career}</Link>
-          </nav>
-          <div className="footer-contact">
-            <a href="mailto:info@omnitechsolutions.eu">
-              info@omnitechsolutions.eu
-            </a>
-          </div>
-        </div>
+        <nav className="footer-nav" aria-label={t.nav.primary}>
+          <Link href="/">{t.nav.home}</Link>
+          <Link href="/services">{t.nav.services}</Link>
+          <Link href="/about">{t.nav.about}</Link>
+          <Link href="/career">{t.nav.career}</Link>
+        </nav>
       </div>
       <p className="footer-copy">{t.footer.copyright}</p>
     </footer>
