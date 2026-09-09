@@ -3,8 +3,18 @@
 import { MeshGradient } from "@mesh-gradient/react";
 import { useEffect, useState } from "react";
 
-const desktopColors = ["#fbfaf9", "#d8d4ff", "#8a7eff", "#2f00ff"];
-const phoneColors = ["#fbfaf9", "#d8d4ff", "#9b90ff", "#5c3dff"];
+const desktopColors: [string, string, string, string] = [
+  "#fbfaf9",
+  "#d8d4ff",
+  "#8a7eff",
+  "#2f00ff",
+];
+const phoneColors: [string, string, string, string] = [
+  "#fbfaf9",
+  "#d8d4ff",
+  "#9b90ff",
+  "#5c3dff",
+];
 
 export function HeroBackground() {
   const [isPhone, setIsPhone] = useState(false);
