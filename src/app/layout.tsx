@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { Inter } from "next/font/google";
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { LanguageProvider, type Locale } from "@/components/LanguageProvider";
 import "./globals.css";
@@ -35,6 +36,7 @@ export default async function RootLayout({
           <div className="page">
             <Header />
             {children}
+            <Footer />
           </div>
         </LanguageProvider>
       </body>

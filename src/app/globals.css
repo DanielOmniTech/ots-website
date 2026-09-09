@@ -512,16 +512,20 @@ img {
   font-weight: 500;
   line-height: 1;
   text-align: center;
+  white-space: nowrap;
   transition: transform 0.35s ease;
 }
 
-.hero-button:hover .hero-button-text {
-  transform: translateY(-24px);
+@media (hover: hover) {
+  .hero-button:hover .hero-button-text {
+    transform: translateY(-24px);
+  }
 }
 
 .header-button {
   display: inline-flex;
   align-items: center;
+  flex: none;
 }
 
 .header-button .hero-button-inner {
@@ -545,8 +549,10 @@ img {
   line-height: 16px;
 }
 
-.header-button:hover .hero-button-text {
-  transform: translateY(-16px);
+@media (hover: hover) {
+  .header-button:hover .hero-button-text {
+    transform: translateY(-16px);
+  }
 }
 
 .customers {
@@ -1356,6 +1362,14 @@ img {
     display: block;
   }
 
+  .header-button {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
   .hero {
     padding-top: 120px;
   }
@@ -1375,8 +1389,39 @@ img {
   .header-inner,
   .hero,
   .product-showcase {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .header-inner {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .brand-logo,
+  .brand-logo img {
+    max-width: 148px;
+    width: 148px;
+  }
+
+  .hero-badge {
+    max-width: 100%;
+    gap: 8px;
+    padding: 6px 12px 6px 6px;
+  }
+
+  .hero-badge-text {
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .hero-description {
+    font-size: 15px;
   }
 }
 
@@ -1384,6 +1429,20 @@ img {
   :root {
     --heading-1: 38px;
     --heading-tracking: -0.5px;
+  }
+
+  .hero {
+    padding-top: 108px;
+  }
+
+  .hero-title {
+    font-size: 30px;
+  }
+
+  .brand-logo,
+  .brand-logo img {
+    max-width: 132px;
+    width: 132px;
   }
 
   .services-bento {
@@ -1400,5 +1459,106 @@ img {
 
   .services-panel-tall {
     grid-row: auto;
+  }
+}
+
+.site-footer {
+  position: relative;
+  z-index: 5;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-line);
+  padding: 56px 30px 28px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px;
+  width: 100%;
+  max-width: 1068px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  max-width: 280px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.footer-logo img {
+  width: 40px;
+  height: 40px;
+  flex: none;
+}
+
+.footer-address {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-style: normal;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 160%;
+}
+
+.footer-maps,
+.footer-contact a,
+.footer-nav a {
+  color: var(--color-muted);
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-maps:hover,
+.footer-contact a:hover,
+.footer-nav a:hover {
+  color: var(--color-ink);
+}
+
+.footer-cols {
+  display: flex;
+  gap: 72px;
+}
+
+.footer-nav,
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-copy {
+  width: 100%;
+  max-width: 1068px;
+  margin: 40px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-line);
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+@media (max-width: 767px) {
+  .site-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .footer-inner,
+  .footer-cols {
+    flex-direction: column;
+    gap: 28px;
   }
 }

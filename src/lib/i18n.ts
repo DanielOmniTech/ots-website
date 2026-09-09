@@ -113,6 +113,10 @@ export const messages = {
       type: "Full-time",
       location: "Belgium / Luxembourg · Hybrid",
     },
+    footer: {
+      maps: "Open in Maps",
+      copyright: "© 2026 Omni Tech Solutions",
+    },
   },
   nl: {
     nav: {
@@ -225,6 +229,10 @@ export const messages = {
       consultant: "ERP-consultant",
       type: "Voltijds",
       location: "België / Luxemburg · Hybride",
+    },
+    footer: {
+      maps: "Bekijk op de kaart",
+      copyright: "© 2026 Omni Tech Solutions",
     },
   },
 } as const;
